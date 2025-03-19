@@ -2,14 +2,25 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/currency-converter/*",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/currency-converter"
+      }
     }
   ],
   "routes": [
     {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*\\.(?:js|css|ico|json))",
+      "dest": "/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/dist/currency-converter/index.html"
+      "dest": "/index.html"
     }
   ]
 }
