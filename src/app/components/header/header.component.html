@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span>{{ 'HEADER.TITLE' | translate }}</span>
+  <span class="spacer"></span>
+  
+  <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Language selector">
+    <mat-icon>language</mat-icon>
+  </button>
+  <mat-menu #languageMenu="matMenu">
+    <button mat-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang.code)">
+      {{ lang.name }}
+    </button>
+  </mat-menu>
+  
+  <button mat-icon-button (click)="toggleTheme()" aria-label="Toggle theme">
+    <mat-icon>{{ (isDarkTheme$ | async) ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+</mat-toolbar>

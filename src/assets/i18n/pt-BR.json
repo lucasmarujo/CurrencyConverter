@@ -1,0 +1,26 @@
+{
+  "APP_TITLE": "Conversor de Moedas",
+  "LANGUAGE": "Idioma",
+  "CURRENCIES": {
+    "BRL": "Real Brasileiro",
+    "USD": "Dólar Americano",
+    "CAD": "Dólar Canadense",
+    "EUR": "Euro",
+    "GBP": "Libra Esterlina",
+    "CNY": "Yuan Chinês",
+    "JPY": "Iene Japonês"
+  },
+  "CONVERTER": {
+    "AMOUNT": "Valor",
+    "FROM": "De",
+    "TO": "Para",
+    "CONVERT": "Converter",
+    "RESULT": "Resultado",
+    "LAST_UPDATE": "Última atualização",
+    "ERROR": "Erro ao obter taxas de câmbio. Tente novamente mais tarde."
+  },
+  "HEADER": {
+    "TITLE": "Conversor de Moedas",
+    "THEME": "Alternar Tema"
+  }
+}

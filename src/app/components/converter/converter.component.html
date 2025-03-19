@@ -1,0 +1,74 @@
+<div class="converter-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ 'APP_TITLE' | translate }}</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <form [formGroup]="converterForm">
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ 'CONVERTER.AMOUNT' | translate }}</mat-label>
+            <input matInput type="number" formControlName="amount" min="0.01" step="0.01">
+            <mat-error *ngIf="converterForm.get('amount')?.hasError('required')">
+              {{ 'CONVERTER.AMOUNT' | translate }} {{ 'is required' }}
+            </mat-error>
+            <mat-error *ngIf="converterForm.get('amount')?.hasError('min')">
+              {{ 'CONVERTER.AMOUNT' | translate }} {{ 'must be greater than 0' }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        
+        <div class="form-row currency-row">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ 'CONVERTER.FROM' | translate }}</mat-label>
+            <mat-select formControlName="fromCurrency">
+              <mat-option *ngFor="let currency of currencies" [value]="currency.code">
+                {{ currency.code }} - {{ currency.name | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <button type="button" mat-mini-fab color="primary" (click)="swapCurrencies()" class="swap-button">
+            <mat-icon>swap_horiz</mat-icon>
+          </button>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>{{ 'CONVERTER.TO' | translate }}</mat-label>
+            <mat-select formControlName="toCurrency">
+              <mat-option *ngFor="let currency of currencies" [value]="currency.code">
+                {{ currency.code }} - {{ currency.name | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+        <div *ngIf="loading" class="loading-indicator">
+          <mat-spinner diameter="20"></mat-spinner>
+        </div>
+      </form>
+      
+      <mat-divider></mat-divider>
+      
+      <div class="result-container" *ngIf="result !== null && !error">
+        <h2>{{ 'CONVERTER.RESULT' | translate }}</h2>
+        <div class="result">
+          <span class="amount">{{ converterForm.value.amount | number:'1.2-2' }}</span>
+          <span class="currency">{{ converterForm.value.fromCurrency }}</span>
+          <span class="equals">=</span>
+          <span class="converted-amount">{{ result | number:'1.2-2' }}</span>
+          <span class="currency">{{ converterForm.value.toCurrency }}</span>
+        </div>
+        <p class="last-updated" *ngIf="lastUpdated">
+          {{ 'CONVERTER.LAST_UPDATE' | translate }}: {{ lastUpdated | date:'medium' }}
+        </p>
+      </div>
+      
+      <div class="error-container" *ngIf="error">
+        <mat-error>
+          {{ 'CONVERTER.ERROR' | translate }}
+        </mat-error>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

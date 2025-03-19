@@ -1,0 +1,26 @@
+{
+  "APP_TITLE": "Currency Converter",
+  "LANGUAGE": "Language",
+  "CURRENCIES": {
+    "BRL": "Brazilian Real",
+    "USD": "US Dollar",
+    "CAD": "Canadian Dollar",
+    "EUR": "Euro",
+    "GBP": "British Pound",
+    "CNY": "Chinese Yuan",
+    "JPY": "Japanese Yen"
+  },
+  "CONVERTER": {
+    "AMOUNT": "Amount",
+    "FROM": "From",
+    "TO": "To",
+    "CONVERT": "Convert",
+    "RESULT": "Result",
+    "LAST_UPDATE": "Last update",
+    "ERROR": "Error fetching exchange rates. Please try again later."
+  },
+  "HEADER": {
+    "TITLE": "Currency Converter",
+    "THEME": "Toggle Theme"
+  }
+}

@@ -1,0 +1,9 @@
+<div class="app-container" [ngClass]="{'dark-theme': isDarkTheme$ | async}">
+  <app-header></app-header>
+  <main>
+    <app-converter></app-converter>
+  </main>
+  <footer>
+    <p>© {{ currentYear }} Currency Converter</p>
+  </footer>
+</div>
